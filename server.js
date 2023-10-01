@@ -16,7 +16,10 @@ const PORT = process.env.PORT || 3001;
 const sess = {
     secret: 'Tech Blog Secret',
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    store: new SequelizeStore({
+        db: sequelize
+    })
 }
 
 const hbs = exphbs.create({ })

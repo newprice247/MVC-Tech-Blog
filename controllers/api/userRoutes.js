@@ -4,6 +4,7 @@ const { User } = require('../../models');
 // GET /api/users
 router.get('/', async (req, res) => {
     try {
+        // Get all users, excluding their password
         const userData = await User.findAll({
             attributes: { exclude: ['password'] }
         });
@@ -13,12 +14,14 @@ router.get('/', async (req, res) => {
     }
 });
 
-// GET /api/users/1
+// GET /api/users/":id"
 router.get('/:id', async (req, res) => {
     try {
+        // Get a single user by id, excluding their password
         const userData = await User.findByPk(req.params.id, {
             attributes: { exclude: ['password'] }
         });
+        // If no user is found, return an error
         if (!userData) {
             res.status(404).json({ message: 'No user found with this id!' });
             return;
@@ -30,9 +33,9 @@ router.get('/:id', async (req, res) => {
 });
 
 // POST /api/users
-
 router.post('/', async (req, res) => {
     try {
+        // Create a new user
         const userData = await User.create(req.body);
         req.session.save(() => {
             req.session.user_id = userData.id;
@@ -45,13 +48,14 @@ router.post('/', async (req, res) => {
     }
 });
 
-// DELETE /api/users/1
-
+// DELETE /api/users/":id"
 router.delete('/:id', async (req, res) => {
     try {
+        // Delete a user by id
         const userData = await User.destroy({
             where: { id: req.params.id }
         });
+        // If no user is found, return an error
         if (!userData) {
             res.status(404).json({ message: 'No user found with this id!' });
             return;

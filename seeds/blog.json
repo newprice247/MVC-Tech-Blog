@@ -1,0 +1,27 @@
+[
+    {
+        "title": "First Post",
+        "content": "This is my first post. I hope you like it!",
+        "user_id": 1
+    },
+    {
+        "title": "Second Post",
+        "content": "This is my second post. I hope you like it more than the first!",
+        "user_id": 1
+    },
+    {
+        "title": "Cats are Cool",
+        "content": "I just love cats! Cats cats cats cats cats cats cats cats cats cats cats cats cats cats cats cats cats cats cats. Cats.",
+        "user_id": 3
+    },
+    {
+        "title": "Dogs are Cool",
+        "content": "I just love dogs! Dogs dogs dogs dogs dogs dog",
+        "user_id": 2
+    },
+    {
+        "title": "In response to dog blog",
+        "content": "How dare you say dogs are cool! Cats are the best!",
+        "user_id": 3
+    }
+]

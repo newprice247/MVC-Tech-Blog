@@ -19,6 +19,18 @@ Blog.init(
         content: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
+        },
+        time_created: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW
         }
     },{
         sequelize,
